@@ -1,7 +1,9 @@
-use neon::prelude::*;
-use neon::types::buffer::TypedArray;
-use std::cell::RefCell;
-use std::sync::{Arc, Mutex};
+use std::{
+    cell::RefCell,
+    sync::{Arc, Mutex},
+};
+
+use neon::{prelude::*, types::buffer::TypedArray};
 
 pub type SendableWriteBatch = RefCell<Arc<Mutex<WriteBatch>>>;
 

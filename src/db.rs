@@ -1,13 +1,12 @@
-use std::cmp;
-use std::sync::{mpsc, Arc, Mutex};
-use std::thread;
+use std::{
+    cmp,
+    sync::{mpsc, Arc, Mutex},
+    thread,
+};
 
-use neon::prelude::*;
-use neon::types::buffer::TypedArray;
+use neon::{prelude::*, types::buffer::TypedArray};
 
-use crate::batch;
-use crate::options;
-use crate::utils;
+use crate::{batch, options, utils};
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Error {

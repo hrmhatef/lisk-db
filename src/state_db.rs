@@ -1,19 +1,14 @@
-use neon::prelude::*;
-use neon::types::buffer::TypedArray;
-use std::cell::RefCell;
-use std::cmp;
-use std::sync::{mpsc, Arc, Mutex, MutexGuard};
-use std::thread;
+use std::{
+    cell::RefCell,
+    cmp,
+    sync::{mpsc, Arc, Mutex, MutexGuard},
+    thread,
+};
+
+use neon::{prelude::*, types::buffer::TypedArray};
 use thiserror::Error;
 
-use crate::batch;
-use crate::consts;
-use crate::diff;
-use crate::options;
-use crate::smt;
-use crate::smt_db;
-use crate::state_writer;
-use crate::utils;
+use crate::{batch, consts, diff, options, smt, smt_db, state_writer, utils};
 
 #[derive(Error, Debug)]
 pub enum DataStoreError {

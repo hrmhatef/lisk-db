@@ -1,5 +1,6 @@
-use sha2::{Digest, Sha256};
 use std::cmp;
+
+use sha2::{Digest, Sha256};
 
 pub fn empty_hash() -> Vec<u8> {
     let hasher = Sha256::new();
@@ -14,7 +15,7 @@ pub fn compare(a: &[u8], b: &[u8]) -> cmp::Ordering {
             ord => return ord,
         }
     }
-    /* if every single element was equal, compare length */
+    // if every single element was equal, compare length
     a.len().cmp(&b.len())
 }
 

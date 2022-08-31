@@ -1,16 +1,16 @@
-use neon::prelude::*;
-use neon::types::buffer::TypedArray;
+use std::{
+    cell::RefCell,
+    cmp,
+    collections::{HashMap, VecDeque},
+    sync::{Arc, Mutex},
+    thread,
+};
+
+use neon::{prelude::*, types::buffer::TypedArray};
 use sha2::{Digest, Sha256};
-use std::cell::RefCell;
-use std::cmp;
-use std::collections::{HashMap, VecDeque};
-use std::sync::{Arc, Mutex};
-use std::thread;
 use thiserror::Error;
 
-use crate::consts;
-use crate::smt_db;
-use crate::utils;
+use crate::{consts, smt_db, utils};
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct UpdateData {
@@ -645,7 +645,11 @@ impl SMT {
         }
     }
 
-    pub fn commit(&mut self, db: &mut impl DB, data: &mut UpdateData) -> Result<Vec<u8>, SMTError> {
+    pub fn commit(
+        &mut self,
+        db: &mut impl DB,
+        data: &mut UpdateData,
+    ) -> Result<Vec<u8>, SMTError> {
         if data.len() == 0 {
             return Ok(self.root.clone());
         }

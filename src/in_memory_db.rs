@@ -1,12 +1,8 @@
-use neon::prelude::*;
-use neon::types::buffer::TypedArray;
-use std::cell::RefCell;
-use std::cmp;
-use std::collections::HashMap;
+use std::{cell::RefCell, cmp, collections::HashMap};
 
-use crate::batch;
-use crate::options;
-use crate::utils;
+use neon::{prelude::*, types::buffer::TypedArray};
+
+use crate::{batch, options, utils};
 
 #[derive(Clone, Debug)]
 struct KVPair(Vec<u8>, Vec<u8>);

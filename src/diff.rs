@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 
-use crate::batch;
-use crate::codec;
+use crate::{batch, codec};
 
 #[derive(Clone, Debug)]
 pub struct KeyValue {

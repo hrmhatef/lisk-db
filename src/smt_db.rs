@@ -1,7 +1,6 @@
 use std::collections::HashMap;
 
-use crate::consts;
-use crate::smt;
+use crate::{consts, smt};
 
 pub struct SMTDB<'a> {
     db: Box<&'a rocksdb::DB>,

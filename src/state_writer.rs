@@ -1,16 +1,16 @@
-use neon::prelude::*;
-use neon::types::buffer::TypedArray;
-use std::cell::RefCell;
-use std::cmp;
-use std::collections::HashMap;
-use std::sync::{Arc, Mutex};
+use std::{
+    cell::RefCell,
+    cmp,
+    collections::HashMap,
+    sync::{Arc, Mutex},
+};
+
+use neon::{prelude::*, types::buffer::TypedArray};
 use thiserror::Error;
 
 pub type SendableStateWriter = RefCell<Arc<Mutex<StateWriter>>>;
 
-use crate::batch;
-use crate::diff;
-use crate::utils;
+use crate::{batch, diff, utils};
 
 #[derive(Error, Debug)]
 pub enum StateWriterError {
